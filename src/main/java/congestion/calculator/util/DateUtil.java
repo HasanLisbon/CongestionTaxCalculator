@@ -27,7 +27,7 @@ public class DateUtil {
                 .toArray(Date[]::new);
     }
 
-    private static Date getDateFromString(String dateStr) throws TaxException {
+    public static Date getDateFromString(String dateStr) throws TaxException {
         SimpleDateFormat formatter = new SimpleDateFormat(DATE_FORMAT, Locale.ENGLISH);
         try {
             return formatter.parse(dateStr);

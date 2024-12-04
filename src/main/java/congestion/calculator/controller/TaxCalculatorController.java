@@ -1,5 +1,6 @@
 package congestion.calculator.controller;
 
+import congestion.calculator.dto.RateDto;
 import congestion.calculator.entity.Rate;
 import congestion.calculator.entity.TaxRequest;
 import congestion.calculator.entity.TaxResponse;
@@ -37,6 +38,4 @@ public class TaxCalculatorController {
             throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, ex.getMessage());
         }
     }
-
-    //public ResponseEntity<Rate> createRate(@RequestBody Rat )
 }

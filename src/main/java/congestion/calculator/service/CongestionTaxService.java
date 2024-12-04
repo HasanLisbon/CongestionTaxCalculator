@@ -1,5 +1,6 @@
 package congestion.calculator.service;
 
+import congestion.calculator.dto.RateDto;
 import congestion.calculator.entity.*;
 import congestion.calculator.exception.TaxException;
 import congestion.calculator.model.Vehicle;
@@ -168,5 +169,9 @@ public class CongestionTaxService {
 
     public LocalDateTime convertToLocalDateTimeViaMilisecond(Date dateToConvert) {
         return Instant.ofEpochMilli(dateToConvert.getTime()).atZone(ZoneId.systemDefault()).toLocalDateTime();
+    }
+
+    public Object createRate(RateDto rateDto) {
+        return null;
     }
 }
