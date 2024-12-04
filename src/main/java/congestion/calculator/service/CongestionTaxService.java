@@ -45,6 +45,12 @@ public class CongestionTaxService {
 
     }
 
+    /**
+     *
+     * @param taxRequest the client request
+     * @return TaxResponse will be returned
+     * @throws TaxException
+     */
     public TaxResponse calculateTax(TaxRequest taxRequest) throws TaxException {
 
         VehicleVerification vehicleFactory = new VehicleVerification();
@@ -68,6 +74,14 @@ public class CongestionTaxService {
         return response;
     }
 
+    /**
+     *
+     * @param vehicle the vehicle on upon the tax will be calculated
+     * @param dates the date at which vehicle crossed the toll point
+     * @param cityName the name of the city
+     * @return the calculated fee
+     * @throws TaxException
+     */
     public int getTax(Vehicle vehicle, Date[] dates, String cityName) throws TaxException {
         Date intervalStart = dates[0];
         int totalFee = 0;
@@ -102,6 +116,12 @@ public class CongestionTaxService {
         return totalFee;
     }
 
+    /**
+     *
+     * @param localDate the time when vehicle passed the toll point
+     * @param rate the rate on that particular point
+     * @return the calculated fee on that particular time as Optional
+     */
     private Optional<Double> getRateByTime(LocalDateTime localDate, Rate rate) {
         LocalDateTime startDate = convertToLocalDateTimeViaMilisecond(rate.getStartDate());
         LocalDateTime endDate = convertToLocalDateTimeViaMilisecond(rate.getEndDate());

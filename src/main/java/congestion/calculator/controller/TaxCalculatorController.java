@@ -26,7 +26,7 @@ public class TaxCalculatorController {
     @Autowired
     private final CongestionTaxService congestionTaxService;
 
-    @PostMapping("/calculate")
+    @PostMapping
     public ResponseEntity<TaxResponse> getTax(@RequestBody TaxRequest taxReq) {
         try {
             return ResponseEntity.ok().body(congestionTaxService.calculateTax(taxReq));

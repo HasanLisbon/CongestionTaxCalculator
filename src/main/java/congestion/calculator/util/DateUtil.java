@@ -14,14 +14,12 @@ public class DateUtil {
     private static final String DATE_FORMAT = "yyyy-MM-dd HH:mm:ss";
 
     public static Date[] getDates(List<String> dates)  {
-        // Use streams to convert the list of strings to an array of Date objects
         return dates.stream()
                 .map(dateString->{
                     try {
-                        return getDateFromString(dateString); // This can throw TaxException
+                        return getDateFromString(dateString);
                     } catch (TaxException e) {
-                        // Wrap TaxException in RuntimeException
-                        throw new RuntimeException(e);  // Handle it or propagate it
+                        throw new RuntimeException(e);
                     }
                 })
                 .toArray(Date[]::new);
@@ -32,7 +30,7 @@ public class DateUtil {
         try {
             return formatter.parse(dateStr);
         } catch (ParseException e) {
-           log.error("Invalid Date Format: " + dateStr, e);  // Log the exception for easier debugging
+           log.error("Invalid Date Format: " + dateStr, e);
             throw new TaxException("Invalid Date Format for input: " + dateStr);
         }
     }
