@@ -2,10 +2,14 @@ package congestion.calculator.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.util.List;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
+@Getter
+@Setter
 public class TaxRequest {
 
 	@JsonProperty(ATTR_CITY)
@@ -19,29 +23,5 @@ public class TaxRequest {
 	@JsonProperty(ATTR_DATES)
 	public List<String> time;
 	public static final String ATTR_DATES = "time";
-
-	public String getCity() {
-		return city;
-	}
-
-	public void setCity(String city) {
-		this.city = city;
-	}
-
-	public String getVehicle() {
-		return vehicle;
-	}
-
-	public void setVehicle(String vehicle) {
-		this.vehicle = vehicle;
-	}
-
-	public List<String> getTime() {
-		return time;
-	}
-
-	public void setTime(List<String> time) {
-		this.time = time;
-	}
 
 }

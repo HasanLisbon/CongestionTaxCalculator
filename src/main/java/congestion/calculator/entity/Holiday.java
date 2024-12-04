@@ -1,10 +1,17 @@
 package congestion.calculator.entity;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 import java.util.Date;
 
 @Entity
 @Table(name = "holiday")
+@Getter
+@Setter
+@NoArgsConstructor
 public class Holiday {
 
 	@Id
@@ -16,33 +23,6 @@ public class Holiday {
 	private City city;
 
 	@Column(name = "date")
-	public Date date;
-
-	public Holiday() {
-	}
-
-	public long getId() {
-		return id;
-	}
-
-	public void setId(long id) {
-		this.id = id;
-	}
-
-	public City getCity() {
-		return city;
-	}
-
-	public void setCity(City city) {
-		this.city = city;
-	}
-
-	public Date getDate() {
-		return date;
-	}
-
-	public void setDate(Date date) {
-		this.date = date;
-	}
+	private Date date;
 
 }

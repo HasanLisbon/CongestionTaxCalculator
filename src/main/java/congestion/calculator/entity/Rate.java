@@ -1,10 +1,17 @@
 package congestion.calculator.entity;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 import java.util.Date;
 
 @Entity
 @Table(name = "rate")
+@Getter
+@Setter
+@NoArgsConstructor
 public class Rate {
 
 	@Id
@@ -16,55 +23,12 @@ public class Rate {
 	private City city;
 
 	@Column(name = "start_date")
-	public Date startDate;
+	private Date startDate;
 
 	@Column(name = "end_date")
-	public Date endDate;
+	private Date endDate;
 
 	@Column(name = "tax")
 	private double tax;
-
-	public Rate() {
-	}
-
-	public long getId() {
-		return id;
-	}
-
-	public void setId(long id) {
-		this.id = id;
-	}
-
-	public City getCity() {
-		return city;
-	}
-
-	public void setCity(City city) {
-		this.city = city;
-	}
-
-	public Date getStartDate() {
-		return startDate;
-	}
-
-	public void setStartDate(Date startDate) {
-		this.startDate = startDate;
-	}
-
-	public Date getEndDate() {
-		return endDate;
-	}
-
-	public void setEndDate(Date endDate) {
-		this.endDate = endDate;
-	}
-
-	public double getTax() {
-		return tax;
-	}
-
-	public void setTax(double tax) {
-		this.tax = tax;
-	}
 
 }

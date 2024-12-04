@@ -25,7 +25,7 @@ public class CongestionTaxService {
 
     public static final long DAYS_BEFORE_HOLIDAY=2;
     private static Map<String, Integer> tollFreeVehicles = new HashMap<>();
-    private final String DATE_FORMAT = "yyyy-MM-dd HH:mm:ss";
+
     @Autowired
     private CityRepository cityRepository;
 

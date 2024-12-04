@@ -2,7 +2,6 @@ package congestion.calculator;
 
 import congestion.calculator.exception.TaxException;
 import congestion.calculator.model.Vehicle;
-import congestion.calculator.repositories.HolidayRepository;
 import congestion.calculator.service.CongestionTaxService;
 import congestion.calculator.util.VehicleVerification;
 import org.junit.jupiter.api.Test;
@@ -10,8 +9,6 @@ import org.mockito.InjectMocks;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.context.annotation.ComponentScan;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;

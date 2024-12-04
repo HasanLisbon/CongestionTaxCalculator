@@ -1,13 +1,15 @@
 package congestion.calculator.entity;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.util.Set;
 
 @Entity
 @Table(name = "cities")
+@Getter
+@Setter
 public class City {
 	
 	@Id
@@ -31,38 +33,6 @@ public class City {
 		this.id = id;
 		this.name = name;
 		this.code = code;
-	}
-
-	public long getId() {
-		return id;
-	}
-
-	public void setId(long id) {
-		this.id = id;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public String getCode() {
-		return code;
-	}
-
-	public void setCode(String code) {
-		this.code = code;
-	}
-
-	public Set<Holiday> getHolidays() {
-		return holidays;
-	}
-
-	public void setHolidays(Set<Holiday> holidays) {
-		this.holidays = holidays;
 	}
 	
 	
