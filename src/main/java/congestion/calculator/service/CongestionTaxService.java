@@ -1,6 +1,7 @@
 package congestion.calculator.service;
 
 import congestion.calculator.model.Vehicle;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.util.Calendar;
@@ -9,13 +10,14 @@ import java.util.HashMap;
 import java.util.Map;
 
 @Service
-public class CongestionTaxCalculator {
+@Slf4j
+public class CongestionTaxService {
 
     private static Map<String, Integer> tollFreeVehicles = new HashMap<>();
 
     static {
         tollFreeVehicles.put("Motorcycle", 0);
-        tollFreeVehicles.put("Tractor", 1);
+        tollFreeVehicles.put("Bus", 1);
         tollFreeVehicles.put("Emergency", 2);
         tollFreeVehicles.put("Diplomat", 3);
         tollFreeVehicles.put("Foreign", 4);
@@ -30,8 +32,8 @@ public class CongestionTaxCalculator {
 
         for (int i = 0; i < dates.length ; i++) {
             Date date = dates[i];
-            int nextFee = GetTollFee(date, vehicle);
-            int tempFee = GetTollFee(intervalStart, vehicle);
+            int nextFee = getTollFee(date, vehicle);
+            int tempFee = getTollFee(intervalStart, vehicle);
 
             long diffInMillies = date.getTime() - intervalStart.getTime();
             long minutes = diffInMillies/1000/60;
@@ -52,15 +54,15 @@ public class CongestionTaxCalculator {
         return totalFee;
     }
 
-    private boolean IsTollFreeVehicle(Vehicle vehicle) {
+    private boolean isTollFreeVehicle(Vehicle vehicle) {
         if (vehicle == null) return false;
         String vehicleType = vehicle.getVehicleType();
         return tollFreeVehicles.containsKey(vehicleType);
     }
 
-    public int GetTollFee(Date date, Vehicle vehicle)
+    public int getTollFee(Date date, Vehicle vehicle)
     {
-        if (IsTollFreeDate(date) || IsTollFreeVehicle(vehicle)) return 0;
+        if (isTollFreeDate(date) || isTollFreeVehicle(vehicle)) return 0;
 
         int hour = date.getHours();
         int minute = date.getMinutes();
@@ -77,7 +79,7 @@ public class CongestionTaxCalculator {
         else return 0;
     }
 
-    private Boolean IsTollFreeDate(Date date)
+    private Boolean isTollFreeDate(Date date)
     {
         int year = date.getYear();
         int month = date.getMonth() + 1;
