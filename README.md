@@ -1,7 +1,52 @@
 # Congestion Tax Calculator
 
-Welcome the Volvo Cars Congestion Tax Calculator assignment.
+Application to calculate the congestion tax fee in Different cities
+## Requirements
 
-This repository contains a developer [assignment](ASSIGNMENT.md) used as a basis for candidate intervew and evaluation.
+For building and running the application you need:
 
-Clone this repository to get started. Due to a number of reasons, not least privacy, you will be asked to zip your solution and mail it in, instead of submitting a pull-request. In order to maintain an unbiased reviewing process, please ensure to **keep your name or other Personal Identifiable Information (PII) from the code**.
+- [OpenJDK 17](https://openjdk.org/projects/jdk/17/)
+- [Maven 3](https://maven.apache.org)
+
+
+## Running the application locally
+
+```shell
+mvn spring-boot:run
+```
+
+## Swagger api to see the application endpoints
+
+After running the spring boot application swagger api will be available in [localhost:8080/swagger-ui/index.html](http://localhost:8080/swagger-ui/index.html)
+
+# Getting access to database
+
+While running get access to database with http://localhost:8080/h2
+The username is "sa" and password is "password"
+
+## Test the application locally using curl
+
+```shell
+curl --location 'http://localhost:8080/api/v1/congestion-tax' \
+--header 'Content-Type: application/json' \
+--data '{
+    "vehicle":"car",
+    "time":[
+        "2013-01-14 21:00:00",
+        "2013-01-15 21:00:00",
+        "2013-02-08 14:35:00",
+        "2013-02-08 16:01:00"
+    ],
+    "city":"GB"
+}'
+```
+
+## Sample response
+
+```shell
+{
+  "tax": 26,
+  "currency": "SEK"
+}
+
+```

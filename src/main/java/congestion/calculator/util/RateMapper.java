@@ -17,12 +17,9 @@ public class RateMapper {
 
         RateResponseDto dto = new RateResponseDto();
         dto.setId(rate.getId());
-
         dto.setCityCode(rate.getCity().getCode());
-
         dto.setStartDate(dateFormat.format(rate.getStartDate()));
         dto.setEndDate(dateFormat.format(rate.getEndDate()));
-
         dto.setTax(rate.getTax());
 
         return dto;
