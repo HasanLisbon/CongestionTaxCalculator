@@ -1,8 +1,8 @@
 package congestion.calculator.model;
 
-public class Motorbike implements Vehicle {
+public class DiplomatVehicle implements Vehicle{
     @Override
     public String getVehicleType() {
-        return "Motorbike";
+        return "Diplomat";
     }
 }
